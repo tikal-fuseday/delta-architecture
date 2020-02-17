@@ -19,9 +19,9 @@ https://delta.io
 - fake_it: A simulator of an application database with live input
 
 ## Instructions
-# Start up docker compose
+### Start up docker compose
 - export DEBEZIUM_VERSION=1.0
 - cd compose
 - docker-compose up -d
-# Config debezium connector
+### Config debezium connector
 curl -i -X POST -H "Accept:application/json" -H  "Content-Type:application/json" http://localhost:8084/connectors/ -d @debezium/config.json
