@@ -2,6 +2,7 @@ from logging.config import fileConfig
 
 from sqlalchemy import engine_from_config
 from sqlalchemy import pool
+import os
 
 from alembic import context
 from fake_it.models import Base
@@ -38,7 +39,7 @@ def run_migrations_offline():
     script output.
 
     """
-    url = config.get_main_option("sqlalchemy.url")
+    url = os.getenv("SQLALCHEMY__URL", "postgres://localhost/fake")
     context.configure(
         url=url,
         target_metadata=target_metadata,
@@ -57,8 +58,10 @@ def run_migrations_online():
     and associate a connection with the context.
 
     """
+    url = os.getenv("SQLALCHEMY__URL", "postgres://localhost/fake")
     connectable = engine_from_config(
         config.get_section(config.config_ini_section),
+        url=url,
         prefix="sqlalchemy.",
         poolclass=pool.NullPool,
     )

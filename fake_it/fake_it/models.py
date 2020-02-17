@@ -4,12 +4,13 @@ from sqlalchemy import create_engine, Column, Integer, String, DateTime, \
 from sqlalchemy.sql import func
 from sqlalchemy.orm import scoped_session, sessionmaker, backref, relation
 from sqlalchemy.ext.declarative import declarative_base
+import os
 
 from werkzeug import cached_property, http_date
 
 from flask import url_for, Markup
 
-engine = create_engine('postgres://localhost/fake',
+engine = create_engine(os.getenv("SQLALCHEMY__URL", "postgres://localhost/fake"),
                        convert_unicode=True)
 db_session = scoped_session(sessionmaker(autocommit=False,
                                          autoflush=False,
