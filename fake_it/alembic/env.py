@@ -39,7 +39,7 @@ def run_migrations_offline():
     script output.
 
     """
-    url = os.getenv("SQLALCHEMY__URL", "postgres://localhost/fake")
+    url = os.getenv("SQLALCHEMY__URL", "postgres://postgres:postgres@localhost/fake")
     context.configure(
         url=url,
         target_metadata=target_metadata,
@@ -58,7 +58,7 @@ def run_migrations_online():
     and associate a connection with the context.
 
     """
-    url = os.getenv("SQLALCHEMY__URL", "postgres://localhost/fake")
+    url = os.getenv("SQLALCHEMY__URL", "postgres://postgres:postgres@localhost/fake")
     connectable = engine_from_config(
         config.get_section(config.config_ini_section),
         url=url,

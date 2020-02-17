@@ -2,7 +2,7 @@ from random import randint, choice
 from faker import Faker
 from time import sleep
 
-from fake_it.models import Voter, Poll
+from fake_it.models import Voter, Poll, init_db
 
 POSSIBLE_ACTIONS = ("insert", "update", "answer_poll")
 
@@ -13,6 +13,8 @@ def random_with_N_digits(n):
 
 
 def main():
+    init_db()
+
     while True:
         action = choice(POSSIBLE_ACTIONS)
         if action == "insert":

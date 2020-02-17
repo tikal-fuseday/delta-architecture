@@ -3,5 +3,5 @@ COPY . /app
 
 WORKDIR /app
 
-run pip install -e .
+RUN pip install -e .
 CMD ["fake-this"]
