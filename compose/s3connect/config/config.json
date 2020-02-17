@@ -1,0 +1,12 @@
+{
+    "config": {
+        "topics": "test-topic",
+        "connector.class": "org.clojars.yanatan16.kafka.connect.s3.S3SinkConnector",
+        "filename.path.json": "[\"value\",\"id\"]",
+        "content.path.json": "[\"value\"]",
+        "s3.bucket": "delta-data.fuze",
+        "s3.prefix": "folder/",
+        "aws.access_key_id": "ACCESS_KEY",
+        "aws.secret_access_key": "SECRET_KEY"
+    }
+}
