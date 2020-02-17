@@ -39,7 +39,7 @@ class Basic():
 
 
 class Voter(Base, Basic):
-    __tablename__ = 'voters'
+    __tablename__ = 'inventory.voters'
     id = Column(String(9), primary_key=True)
     name = Column(String(50))
     address = Column(String(100))
@@ -48,7 +48,7 @@ class Voter(Base, Basic):
     bibist = Column(String(1))
 
 class Poll(Base, Basic):
-    __tablename__ = 'polls'
+    __tablename__ = 'inventory.polls'
     id = Column('id', Integer, primary_key=True, autoincrement=True)
     voter_id = Column(String(9), ForeignKey('voters.id'))
     answer = Column(String(50))
