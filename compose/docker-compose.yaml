@@ -1,5 +1,11 @@
 version: '2'
 services:
+  fake_this:
+    image: fake-this
+    links:
+     - postgres
+    environment:
+     - SQLALCHEMY__URL=postgres://postgres:postgres@postgres:5432/fake
   zookeeper:
     image: debezium/zookeeper:${DEBEZIUM_VERSION}
     ports:
