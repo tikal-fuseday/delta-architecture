@@ -58,7 +58,7 @@ services:
       CONNECT_KEY_CONVERTER_SCHEMAS_ENABLE: "false"
       CONNECT_ZOOKEEPER_CONNECT: zookeeper:2181
   fake_this:
-    image: fake-this:12
+    image: fake-this:13
     restart: always
     links:
      - postgres

@@ -50,6 +50,6 @@ class Voter(Base, Basic):
 class Poll(Base, Basic):
     __tablename__ = 'inventory.polls'
     id = Column('id', Integer, primary_key=True, autoincrement=True)
-    voter_id = Column(String(9), ForeignKey('voters.id'))
+    voter_id = Column(String(9), ForeignKey('inventory.voters.id'))
     answer = Column(String(50))
     created_at = Column(DateTime(), default=datetime.now)
