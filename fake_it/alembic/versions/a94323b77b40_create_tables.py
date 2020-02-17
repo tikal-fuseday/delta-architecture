@@ -21,7 +21,7 @@ def upgrade():
     op.create_table('voters',
     sa.Column('id', sa.String(length=9), nullable=False),
     sa.Column('name', sa.String(length=50), nullable=True),
-    sa.Column('address', sa.String(length=50), nullable=True),
+    sa.Column('address', sa.String(length=100), nullable=True),
     sa.Column('gender', sa.String(length=50), nullable=True),
     sa.Column('race', sa.String(length=50), nullable=True),
     sa.Column('bibist', sa.String(length=1), nullable=True),

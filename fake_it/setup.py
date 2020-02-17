@@ -19,4 +19,10 @@ setup(
         "psycopg2>=2.8.4",
         "werkzeug==0.16.1",
     ],
+    entry_points={
+        "console_scripts": [
+            "fake-this = fake_it.app:main",
+        ],
+    },
+
 )

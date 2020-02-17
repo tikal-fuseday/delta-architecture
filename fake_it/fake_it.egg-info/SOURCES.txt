@@ -3,6 +3,7 @@ setup.py
 fake_it.egg-info/PKG-INFO
 fake_it.egg-info/SOURCES.txt
 fake_it.egg-info/dependency_links.txt
+fake_it.egg-info/entry_points.txt
 fake_it.egg-info/not-zip-safe
 fake_it.egg-info/requires.txt
 fake_it.egg-info/top_level.txt
