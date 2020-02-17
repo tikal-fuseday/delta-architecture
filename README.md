@@ -1,5 +1,6 @@
 # delta-architecture
 A data pipeline that maintains an up to date replication of multiple databases
+
 It is composed of Debezium and Delta Lake:
 - Debezium: Debezium is an open source distributed platform for change data capture. Start it up, point it at your databases, and your apps can start responding to all of the inserts, updates, and deletes that other apps commit to your databases. Debezium is durable and fast, so your apps can respond quickly and never miss an event, even when things go wrong.
 https://debezium.io
