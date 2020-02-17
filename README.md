@@ -9,12 +9,12 @@ https://delta.io
 
 ## Strategy
 - Debezium reads database logs, produces json messages that describe the changes made and streams them to Kafka
-- Kafka streams the messages and stores in a S3 folder. We call it "Bronze" table as it stores raw messages
-- Using Spark with Delta Lake we transform the messages to INSERT, UPDATE and DELETE operations, and run them on the replicated data table. We call it "Silver" table as it's a refined table that holds the latest state of all source databases
+- Kafka streams the messages and stores them in a S3 folder. We call it "Bronze" table as it stores raw messages
+- Using Spark with Delta Lake we transform the messages to INSERT, UPDATE and DELETE operations, and run them on the target data table. We call it "Silver" table as it holds the latest state of all source databases
 - Next we can perform further aggregations on the Silver table for analytics. We call it "Gold" table
 
 ## Components
-- Debezium Stack - Kafka, Zookeepr and Kafka-Connect: Reads changes from the Databases and streams it to S3
+- Debezium Stack - Kafka, Zookeepr and Kafka-Connect: Reads changes from the Databases and streams them to S3
 - Delta Transformer: PySpark code that transforms Debezium messages to INSERT, UPDATE and DELETE operations
 - fake_it: A simulator of an application database with live input
 
