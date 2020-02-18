@@ -14,14 +14,14 @@ https://delta.io
 - Next we can perform further aggregations on the Silver table for analytics. We call it "Gold" table
 
 ## Components
-- Debezium Stack - Kafka, Zookeepr and Kafka-Connect: Reads changes from the Databases and streams them to S3
-- Delta Transformer: PySpark code that transforms Debezium messages to INSERT, UPDATE and DELETE operations
-- fake_it: A simulator of an application database with live input
+- compose: Docker-Compose that deploys Debezium stack (Kafka, Zookeepr and Kafka-Connect), reads changes from the Databases and streams them to S3
+- delta-processor: PySpark code that transforms Debezium messages to INSERT, UPDATE and DELETE operations
+- fake_it: For an end-to-end example, a simulator of an application's database with live input
 
 ## Instructions
 ### Start up docker compose
 - export DEBEZIUM_VERSION=1.0
 - cd compose
 - docker-compose up -d
-### Config debezium connector
+### Config Debezium connector
 curl -i -X POST -H "Accept:application/json" -H  "Content-Type:application/json" http://localhost:8084/connectors/ -d @debezium/config.json
