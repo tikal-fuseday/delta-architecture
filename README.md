@@ -1,12 +1,13 @@
+WORK-IN-PROGRESS
+
 # delta-architecture
 Streaming data changes to a Data Lake with Debezium and Delta Lake pipeline
+https://medium.com/@yinondn_94470/streaming-data-changes-to-a-data-lake-with-debezium-and-delta-lake-pipeline-786d6f2ddc32
 
-- Debezium is an open source distributed platform for change data capture. Start it up, point it at your databases, and your apps can start responding to all of the inserts, updates, and deletes that other apps commit to your databases. Debezium is durable and fast, so your apps can respond quickly and never miss an event, even when things go wrong.
-https://debezium.io
-- Delta Lake is an open-source storage layer that brings ACID transactions to Apache Spark™ and big data workloads.
-https://delta.io
+This is an example end-to-end project that demonstrates the Debezium-Delta Lake combo pipeline
+See medium post for more details
 
-## Strategy
+## High Level Strategy Overview
 - Debezium reads database logs, produces json messages that describe the changes made and streams them to Kafka
 - Kafka streams the messages and stores them in a S3 folder. We call it "Bronze" table as it stores raw messages
 - Using Spark with Delta Lake we transform the messages to INSERT, UPDATE and DELETE operations, and run them on the target data table. We call it "Silver" table as it holds the latest state of all source databases
@@ -14,7 +15,7 @@ https://delta.io
 
 ## Components
 - compose: Docker-Compose configuration that deploys Debezium stack (Kafka, Zookeepr and Kafka-Connect), reads changes from the source databases and streams them to S3
-- delta-processor: PySpark code that transforms Debezium messages to INSERT, UPDATE and DELETE operations
+- voter-processing: PySpark code that transforms Debezium messages to INSERT, UPDATE and DELETE operations
 - fake_it: For an end-to-end example, a simulator of an application's database with live input
 
 ## Instructions
