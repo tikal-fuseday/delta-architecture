@@ -31,14 +31,8 @@ def main():
         # I don't know if this actually works
         sleep(0.5)
 
-def random_race():
-    return choice(('Ashkenazi', "Spharadi", "Mix", "Goy", "Smolani Boged"))
-
 def random_gender():
     return choice(('m','f','t','n'))
-
-def random_bibist():
-    return choice(('y','n'))
 
 def insert_fake_voter():
     faker = Faker()
@@ -47,17 +41,13 @@ def insert_fake_voter():
         name=faker.name(),
         address=faker.address(),
         gender=random_gender(),
-        race=random_race(),
-        bibist=random_bibist(),
     ).create()
 
 def update_random_voter():
     voter = Voter.random()
     if voter is not None:
         if choice((True, False)):
-            voter.race = random_race()
-        if choice((True, False)):
-            voter.bibist = random_bibist()
+            voter.gender = random_gender()
         voter.save()
 
 def delete_random_voter():
@@ -70,7 +60,7 @@ def answer_random_poll():
     if voter is not None:
         Poll(
             voter_id=voter.id,
-            answer=choice(("Bibi", "Gantz", "Benet", "Emet", "Meshutefet", "Dosim"))
+            answer=choice(("Bibi", "Gantz", "Benet", "Emet", "Meshutefet", "Shas"))
         ).create()
 
 def delete_random_poll():

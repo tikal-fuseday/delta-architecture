@@ -48,8 +48,7 @@ class Voter(Base, Basic):
     name = Column(String(50))
     address = Column(String(100))
     gender = Column(String(50))
-    race = Column(String(50))
-    bibist = Column(String(1))
+
 
 class Poll(Base, Basic):
     __tablename__ = 'inventory.polls'

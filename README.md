@@ -15,9 +15,9 @@ See medium post for more details
 - Next we can perform further aggregations on the Silver table for analytics. We call it Gold table
 
 ## Components
-- compose: Docker-Compose configuration that deploys Debezium stack (Kafka, Zookeepr and Kafka-Connect), reads changes from the source databases and streams them to S3
-- voter-processing: PySpark code that transforms Debezium messages to INSERT, UPDATE and DELETE operations
-- fake_it: For an end-to-end example, a simulator of an application's database with live input
+- compose: Docker-Compose configuration that deploys containers with Debezium stack (Kafka, Zookeepr and Kafka-Connect), reads changes from the source databases and streams them to S3
+- voter-processing: Notebook with PySpark code that transforms Debezium messages to INSERT, UPDATE and DELETE operations
+- fake_it: For an end-to-end example, a simulator of a voters book application's database with live input
 
 ## Instructions
 ### Start up docker compose
@@ -26,3 +26,17 @@ See medium post for more details
 - docker-compose up -d
 ### Config Debezium connector
 curl -i -X POST -H "Accept:application/json" -H  "Content-Type:application/json" http://localhost:8084/connectors/ -d @debezium/config.json
+### Run spark notebook
+Import the notebook file in \voter-processing\voter-processing.html to a Databricks Community account and follow the instructions inside the notebook
+
+
+https://community.cloud.databricks.com/
+
+## TODO - To complete the end-to-end example flow
+- Change the voter-processing from notebook to PySpark application
+- Add the PySpark application to the Docker-Compose
+- Change the configurations so that Kafka writes to local file system instead of S3
+- Change the Spark application so that it read Kafka's output instead of generating it's own mock data
+
+## What's Next?
+Make it a configurable generic tool that can be assembled on top of any supported database
