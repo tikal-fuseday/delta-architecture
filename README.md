@@ -2,7 +2,7 @@ WORK-IN-PROGRESS
 
 # delta-architecture
 Streaming data changes to a Data Lake with Debezium and Delta Lake pipeline
-https://medium.com/@yinondn_94470/streaming-data-changes-to-a-data-lake-with-debezium-and-delta-lake-pipeline-786d6f2ddc32
+https://medium.com/@yinondn/streaming-data-changes-to-a-data-lake-with-debezium-and-delta-lake-pipeline-299821053dc3
 
 This is an example end-to-end project that demonstrates the Debezium-Delta Lake combo pipeline
 
