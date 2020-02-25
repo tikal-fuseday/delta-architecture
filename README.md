@@ -18,6 +18,7 @@ See medium post for more details
 - compose: Docker-Compose configuration that deploys containers with Debezium stack (Kafka, Zookeepr and Kafka-Connect), reads changes from the source databases and streams them to S3
 - voter-processing: Notebook with PySpark code that transforms Debezium messages to INSERT, UPDATE and DELETE operations
 - fake_it: For an end-to-end example, a simulator of a voters book application's database with live input
+- analytics: a spark job that simulates reading all history versions from delta lake, and then storing the most updated data, for each poll.
 
 ## Instructions
 ### Start up docker compose
