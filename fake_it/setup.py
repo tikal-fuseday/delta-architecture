@@ -17,7 +17,7 @@ setup(
         "faker==4.0.0",
         "flask>=1.1.1",
         "psycopg2>=2.8.4",
-        "werkzeug==0.16.1",
+        "werkzeug==2.2.3",
     ],
     entry_points={
         "console_scripts": [
